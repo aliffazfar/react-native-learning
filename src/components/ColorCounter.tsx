@@ -3,8 +3,8 @@ import { Button, StyleSheet, Text, View } from 'react-native'
 
 interface ColorProp {
   color: string
-  onIncrease: () => void
-  onDecrease: () => void
+  onIncrease: any
+  onDecrease: any
 }
 
 const ColorCounter: FC<ColorProp> = ({ color, onIncrease, onDecrease }) => {

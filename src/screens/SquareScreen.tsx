@@ -2,18 +2,28 @@ import React, { FC, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import ColorCounter from '../components/ColorCounter'
 
-const COLOR_INCREMENT = 15
+const COLOR_INCREMENT: number = 15
 
 const SquareScreen: FC = () => {
-  const [red, setRed] = useState<any>(0)
-  const [green, setGreen] = useState<any>(0)
-  const [blue, setBlue] = useState<any>(0)
+  const [red, setRed] = useState<number>(0)
+  const [green, setGreen] = useState<number>(0)
+  const [blue, setBlue] = useState<number>(0)
+
+  const setColor = (color: string, change: number) => {
+    if (color === 'red') {
+      if (red + change > 255 || red + change < 0) {
+        return
+      } else {
+        setRed(red + change)
+      }
+    }
+  }
 
   return (
     <View>
       <ColorCounter
-        onIncrease={() => setRed(red + COLOR_INCREMENT)}
-        onDecrease={() => setRed(red - COLOR_INCREMENT)}
+        onIncrease={() => setColor('red', COLOR_INCREMENT)}
+        onDecrease={() => setColor('red', -1 * COLOR_INCREMENT)}
         color='Red'
       />
       <ColorCounter
