@@ -7,12 +7,16 @@ interface imageDetailProp {
   imageScore: string
 }
 
-const ImageDetail: FC<imageDetailProp> = (props) => {
+const ImageDetail: FC<imageDetailProp> = ({
+  title,
+  imageSource,
+  imageScore,
+}) => {
   return (
     <View>
-      <Image source={props.imageSource} />
-      <Text>Show Image {props.title}</Text>
-      <Text>Image Score {props.imageScore}</Text>
+      <Image source={imageSource} />
+      <Text>Show Image {title}</Text>
+      <Text>Image Score - {imageScore}</Text>
     </View>
   )
 }
